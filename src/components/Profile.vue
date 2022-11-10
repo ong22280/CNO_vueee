@@ -2,7 +2,7 @@
 
 
     <div class="static p-3 ">
-        <a href="#" class="
+        <a :href="getLink(link)" class="
             flex flex-col
             items-center
             bg-white
@@ -21,7 +21,9 @@
             h-96
             rounded-t-lg
             md:h-auto md:w-48 md:rounded-none md:rounded-l-lg
-            " src="../assets/images/default.jpg" alt="" />
+            " :src="getUrl(image)" alt="" 
+   
+            />
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <p class="
                 mb-2
@@ -42,8 +44,13 @@
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     instagram : {{ instagram }}
                 </p>
+                <p>
+                    <font-awesome-icon icon="fa-brands fa-instagram" />
+                </p>
             </div>
         </a>
+    </div>
+    <div :style="getUrlImage(image)">
     </div>
 
 
@@ -72,6 +79,29 @@ export default {
             type: String,
             default: "No have instagram"
         },
+        image: {
+            type: String,
+            default: "https://i.pinimg.com/736x/f1/0f/f7/f10ff70a7155e5ab666bcdd1b45b726d.jpg"
+        },
+        link: {
+            type: String,
+            default: "https://www.google.com/"
+        }
+    },
+    methods: {
+        getUrlImage(imagePath) {
+            return {
+                backgroundImage:  'url("./src/'+imagePath+'")'
+            };
+        },
+        getUrl(imagePath) {
+            let url = new URL(imagePath);
+            return url;
+        },
+        getLink(link) {
+            let url = new URL(link);
+            return url;
+        }
     }
 };
 </script>

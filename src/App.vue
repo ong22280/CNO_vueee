@@ -11,7 +11,8 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #18191a
+    background-image: url('src/assets/images/bg.png');
+
 }
 
 /* Style the side navigation */
