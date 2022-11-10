@@ -58,6 +58,7 @@
 
 <script>
 export default {
+    name: 'ProfileCard',
     props: {
         imagePro: {
             type: String,
